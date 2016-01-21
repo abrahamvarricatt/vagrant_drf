@@ -20,6 +20,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 		ansible.playbook = "site.yml"
 		ansible.inventory_path = "hosts/dev"
 		ansible.limit = "all"
+		# ref: http://stackoverflow.com/a/30792297
 		ansible.extra_vars = { ansible_ssh_user: 'vagrant' }
 		ansible.sudo = true
 		ansible.verbose = "vvvv"
