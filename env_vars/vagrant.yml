@@ -1,0 +1,18 @@
+---
+
+# Git settings
+setup_git_repo: yes
+git_branch: master
+
+
+# Gunicorn settings.
+gunicorn_num_workers: 3
+gunicorn_max_requests: 0
+gunicorn_timeout_seconds: 300
+
+# Application settings.
+django_settings_file: "{{ application_name }}.settings.local"
+django_secret_key: "akr2i1461n8%z^3fe3c+)5d0(t^cy-2_25rrl35a7@!scna^1#"
+
+run_django_db_migrations: yes
+run_django_collectstatic: yes

@@ -5,7 +5,7 @@
 VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-	config.vm.box = "centos/7"
+	config.vm.box = "ubuntu/trusty64"
 	config.vm.network "private_network", ip: "192.168.33.10"
 	config.vm.network "forwarded_port", guest: 80, host: 8080
 #	config.ssh.username = "root"
@@ -17,13 +17,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 	end
 
 	config.vm.provision "ansible" do |ansible|
-		ansible.playbook = "site.yml"
-		ansible.inventory_path = "hosts/dev"
-		ansible.limit = "all"
-		# ref: http://stackoverflow.com/a/30792297
-		ansible.extra_vars = { ansible_ssh_user: 'vagrant' }
-		ansible.sudo = true
-		ansible.verbose = "vvvv"
+		ansible.playbook = "vagrant.yml"
+		ansible.host_key_checking = false
+		ansible.verbose = "v"
 	end
 end
 
