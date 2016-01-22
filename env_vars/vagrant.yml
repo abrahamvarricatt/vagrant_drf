@@ -4,6 +4,10 @@
 setup_git_repo: yes
 git_branch: master
 
+# Database settings
+db_user: "{{ application_name }}"
+db_name: "{{ application_name }}"
+db_password: password
 
 # Gunicorn settings.
 gunicorn_num_workers: 3

@@ -1,0 +1,8 @@
+[program:{{ application_name }}]
+command = {{ virtualenv_path }}/bin/gunicorn_start
+autorestart=true
+autostart=true
+user = {{ gunicorn_user }}
+stdout_logfile = {{ application_log_file }}
+redirect_stderr = true
+
